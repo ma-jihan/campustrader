@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if is_guest %}
+<div style="background:#ffeeba; color:#856404; padding:12px; border-radius:8px; text-align:center; font-size:16px; margin-bottom:20px;">
+    ⚠️ 当前为【游客模式】，仅可浏览，发布、收藏等功能不可用。<a href="{{url_for('login')}}" style="color:#0066ff;">点击登录获取完整权限</a>
+</div>
+{% endif %}
+
+<h2 style="text-align:center; color:#0066ff;">欢迎，{{username}}</h2>
+
+<!-- 退出登录按钮 -->
+<div style="text-align:center; margin-top:20px;">
+    <a href="{{url_for('logout')}}">
+        <button style="padding:12px 24px; font-size:16px; background-color:#6c757d; color:white; border:none; border-radius:6px;">退出登录</button>
+    </a>
+</div>
+
+{% endblock %}

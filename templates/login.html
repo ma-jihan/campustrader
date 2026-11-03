@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card" style="width:90%; max-width:520px; margin:0 auto; padding:40px 30px;">
+    <h2 style="text-align:center; color:#0066ff; font-size:28px; margin-top:0; margin-bottom:30px;">用户登录</h2>
+    <form method="post">
+        <div style="margin-bottom:24px;">
+            <label style="font-size:18px; display:block; margin-bottom:8px;">学号</label>
+            <input type="text" name="student_id" style="width:100%; padding:12px; font-size:16px; border:1px solid #ced4da; border-radius:6px;" value="{{student_id}}" placeholder="输入学号" required>
+        </div>
+
+        <div style="margin-bottom:24px;">
+            <label style="font-size:18px; display:block; margin-bottom:8px;">密码</label>
+            <input type="password" name="password" style="width:100%; padding:12px; font-size:16px; border:1px solid #ced4da; border-radius:6px;" placeholder="输入密码" required>
+        </div>
+
+        <!-- 红色错误提示区域 -->
+        <div style="min-height:32px; margin-bottom:24px; display:flex; align-items:center;">
+            {% if error %}
+            <span style="color:red; font-size:18px;">
+                {{ error }}
+            </span>
+            {% endif %}
+        </div>
+
+        <!-- 注册链接在登录按钮正上方 -->
+        <div style="text-align:center; margin-bottom:24px; font-size:16px;">
+            <a href="{{url_for('register')}}" style="color:#0066ff; text-decoration:none;">没有账号？去注册</a>
+        </div>
+
+        <button type="submit" style="width:100%; padding:14px; font-size:18px; background-color:#0066ff; color:white; border:none; border-radius:6px;">登录</button>
+    </form>
+
+    <!-- 底部只保留左下角游客模式，删除右下角老年模式 -->
+    <div style="display:flex; justify-content:flex-start; margin-top:30px;">
+        <a href="{{url_for('guest')}}" style="color:#0066ff; font-size:16px;">游客模式</a>
+    </div>
+</div>
+{% endblock %}
